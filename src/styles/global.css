@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Inter;
+}
+
+body {
+  background-color: #161313;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+
+@keyframes toLeft {
+  to {
+    transform: initial;
+  }
+}
+
+
+p,
+h2 {
+  color: #eff6ee;
+  padding-bottom: 8px;
+}
+
+
+strong {
+  color: white;
+  font-size: 24px;
+  font-weight: 400px;
+  text-align: center;
+}
+
+.stores {
+  color: #3f3f3f;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
