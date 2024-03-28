@@ -38,6 +38,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
           idGame: 1,
           nameGame: "Spider-Man",
           price: 29.90,
+          discount:10,
           description: "Spider-Man é um jogo eletrônico de ação-aventura desenvolvido pela Insomniac Games e publicado pela Sony Interactive Entertainment. É baseado nos personagens, mitologia e adaptações em outras mídias do super-herói de histórias em quadrinhos Homem-Aranha da Marvel Comics, tendo sido lançado exclusivamente para PlayStation 4 em 7 de setembro de 2018. Na história, o criminoso super-humano Senhor Negativo organiza um plano para se vingar do prefeito Norman Osborn e assumir o controle do submundo criminal de Nova Iorque. O Homem-Aranha precisa proteger a cidade assim que o Senhor Negativo ameaça lançar um vírus mortal por toda a área, ao mesmo tempo que é forçado a lidar com seus problemas pessoais como Peter Parker.",
           linkImage: "https://upload.wikimedia.org/wikipedia/pt/7/78/Spider-Man_jogo_2018_capa.png",
           platforms: [
@@ -50,6 +51,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
             {
               adress: "Av. Piracema, 669 - Tamboré, Barueri - SP, 06460-030",
               quantity: 17,
+              discount:10,
               nameStore: "Smart Games Tamboré",
               linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.7820583862263!2d-46.83692552467153!3d-23.504358278839028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf017b8c1a5da9%3A0x22a277028d33acc!2sShopping%20Tambor%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1702222948150!5m2!1spt-BR!2sbr",
               idStore: 1
@@ -74,6 +76,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
           idGame: 2,
           nameGame: "Spider-Man",
           price: 29.90,
+          discount:10,
           description: "Spider-Man é um jogo eletrônico de ação-aventura desenvolvido pela Insomniac Games e publicado pela Sony Interactive Entertainment. É baseado nos personagens, mitologia e adaptações em outras mídias do super-herói de histórias em quadrinhos Homem-Aranha da Marvel Comics, tendo sido lançado exclusivamente para PlayStation 4 em 7 de setembro de 2018. Na história, o criminoso super-humano Senhor Negativo organiza um plano para se vingar do prefeito Norman Osborn e assumir o controle do submundo criminal de Nova Iorque. O Homem-Aranha precisa proteger a cidade assim que o Senhor Negativo ameaça lançar um vírus mortal por toda a área, ao mesmo tempo que é forçado a lidar com seus problemas pessoais como Peter Parker.",
         
           linkImage: "https://upload.wikimedia.org/wikipedia/pt/7/78/Spider-Man_jogo_2018_capa.png",
@@ -111,6 +114,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
           idGame: 3,
           nameGame: "Spider-Man",
           price: 29.90,
+          discount:10,
           description: "Spider-Man é um jogo eletrônico de ação-aventura desenvolvido pela Insomniac Games e publicado pela Sony Interactive Entertainment. É baseado nos personagens, mitologia e adaptações em outras mídias do super-herói de histórias em quadrinhos Homem-Aranha da Marvel Comics, tendo sido lançado exclusivamente para PlayStation 4 em 7 de setembro de 2018. Na história, o criminoso super-humano Senhor Negativo organiza um plano para se vingar do prefeito Norman Osborn e assumir o controle do submundo criminal de Nova Iorque. O Homem-Aranha precisa proteger a cidade assim que o Senhor Negativo ameaça lançar um vírus mortal por toda a área, ao mesmo tempo que é forçado a lidar com seus problemas pessoais como Peter Parker.",
           
           linkImage: "https://upload.wikimedia.org/wikipedia/pt/7/78/Spider-Man_jogo_2018_capa.png",
@@ -158,7 +162,8 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
         {
           idGame: 4,
           nameGame: "Spider-Man",
-          price: 29.90,
+          price: 29.99,
+          discount:null,
           description: "Spider-Man é um jogo eletrônico de ação-aventura desenvolvido pela Insomniac Games e publicado pela Sony Interactive Entertainment. É baseado nos personagens, mitologia e adaptações em outras mídias do super-herói de histórias em quadrinhos Homem-Aranha da Marvel Comics, tendo sido lançado exclusivamente para PlayStation 4 em 7 de setembro de 2018. Na história, o criminoso super-humano Senhor Negativo organiza um plano para se vingar do prefeito Norman Osborn e assumir o controle do submundo criminal de Nova Iorque. O Homem-Aranha precisa proteger a cidade assim que o Senhor Negativo ameaça lançar um vírus mortal por toda a área, ao mesmo tempo que é forçado a lidar com seus problemas pessoais como Peter Parker.",
          
           linkImage: "https://upload.wikimedia.org/wikipedia/pt/7/78/Spider-Man_jogo_2018_capa.png",
@@ -206,6 +211,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
         nameGame: game.nameGame,
         linkImage: game.linkImage,
         price:game.price,
+        discount:game.discount,
         platforms: game.platforms,
         description: game.description,
         stores: game.stores

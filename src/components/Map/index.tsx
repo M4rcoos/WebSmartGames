@@ -8,7 +8,7 @@ export const Map = ({url}:props) => {
   
   return <iframe
   src={url}
-  width="300"
+  width="250"
   height="200"
   style={{ border: 0 }}
   loading="lazy"

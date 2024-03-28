@@ -28,6 +28,7 @@ export interface IGame {
   description: string;
   linkImage: string;
   price: number;
+  discount:number | null,
   platforms: IPlatform[];
   stores: IStore[];
 }
