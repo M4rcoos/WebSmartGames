@@ -2,10 +2,13 @@ import styled from "styled-components"
 type valueColors = {
   type: "VALUE" | "DISCOUNT" | "TOTAL"
 }
+type selectedStore = {
+  type: false
+}
 export const ModalContainer = styled.div`
   display: flex;
   justify-items: center;
-  align-items: center;
+  gap:16px;
 
   @media screen and (max-width: 900px) {
     display: flex;
@@ -13,6 +16,12 @@ export const ModalContainer = styled.div`
     align-content: center;
   }
 `;
+export const QrCode = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:8px
+`
 export const CloseModal = styled.button`
  padding: 5px;
   font-weight: 700;
@@ -32,26 +41,54 @@ background-color: gray;
   }
   `
 export const BuyModal = styled.button`
- width: 260px;
+ width: 100%;
   height: 64px;
-  background-color: #ED663C;
+  background-color: #03ac13;
   border: 0;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 30px;
   color: white;
   font-weight: 700;
   font-size: 20px;
-  grid-area: 5 / 1;
-  margin-left: 10px;
-  justify-self: start;
   transition: background-color 0.5s ease, color 0.5s ease, width 0.5s ease;
   &:hover{
-  width: 320px;
   background-color: transparent;
-  border: 2px solid #ED663C;
-  color: #ED663C; 
+  border: 2px solid #049612;
+  color: #049612; 
   }
+
+  @media screen and (max-width: 900px) {
+    align-self: center !important;
+  }
+`
+export const SelectedStoreContent = styled.div`
+display: flex;
+flex-direction: row;
+justify-content:space-around
+`
+  
+
+export const SelectedStore = styled.button`
+ width: 160px;
+  height: 44px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #ED663C; 
+  border: 2px solid #ED663C;
+  font-weight: 700;
+  font-size: 20px;
+  transition: background-color 0.5s ease, color 0.5s ease, width 0.5s ease;
+  &:hover{
+    background-color: #ED663C;
+    color: white;
+  }
+  &.selected {
+        background-color: #ED663C;
+        color: white;
+    }
+  
 
   @media screen and (max-width: 900px) {
     align-self: center !important;
@@ -71,9 +108,31 @@ export const ModalContent = styled.div`
   grid-template-rows: auto auto auto auto;
   row-gap: 10px;
 `;
+export const TextDiscount = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  width: 30vw;
+  line-height: 24px;
+  text-align: left;
+  color: #aaa;
+  font-style: italic;
+`
+export const Discount = styled.div`
+  display: flex;
+ flex-direction:column;
+  gap:16px;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+
+`;
 export const ImgAndDescription = styled.div`
 `
 export const ContentPurchase = styled.div`
+display: flex;
+flex-direction: column;
+gap:34px;
 `
 export const DescValue = styled.div`
 display: flex;
@@ -131,6 +190,7 @@ export const ModalMap = styled.div`
 `;
 
 export const Localization = styled.div`
+
   margin-top: 15px;
   display: flex;
   flex-direction: row;
@@ -138,13 +198,19 @@ export const Localization = styled.div`
   width: 100%;
 `;
 
+export const ContentMap = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+
+`;
 export const Content = styled.div`
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:16px;
+
 `;
 
 export const QRCodeContainer = styled.div`

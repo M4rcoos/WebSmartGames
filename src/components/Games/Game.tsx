@@ -5,7 +5,9 @@ import { GlobalContext } from '../../context/GlobalContext';
 import { Subtitle } from '../../interfaces/Interfaces';
 import { customStyles } from './styles/CustomStyle';
 import * as C from './styles'
+import { Header } from '../Header/styles';
 import { ModalProduct } from '../Modal/Modal';
+import { api } from '../../services/api';
 
 Modal.setAppElement('#root');
 
@@ -34,13 +36,17 @@ export const Games: React.FC = () => {
   };
 
 
-  const handleBuy = (id: number, name: string) => {
+  const handleBuy = (idGame: number, idStore: number) => {
+    api.put(`/games/${idGame}/${idStore}`) .then(() => {
+      const titulo = "Compra Efetuada";
+      const mensagem = "A sua compra foi efetuada com sucesso!";
+      alert(titulo + "\n\n" + mensagem);
+  })
+  .catch((error) => {
+      console.error("Erro ao selecionar a loja:", error); // Exibir um alerta caso ocorra um erro
+  });
 
-    const buyAlert = error
-      ? error
-      : `Compra concluída com sucesso! Você comprou: ${name}
-      Seu protocolo é: ${id}`;
-    alert(buyAlert);
+   
   };
 
   if (games && games.length > 0 && filteredGames) {
@@ -48,6 +54,7 @@ export const Games: React.FC = () => {
   }
 
   return (
+    <>
     <C.GameContainer>
       {filteredGames ? (
         filteredGames.map((game, index) => (
@@ -55,7 +62,7 @@ export const Games: React.FC = () => {
             <C.GameTitle>{game.nameGame}</C.GameTitle>
             <C.GameImg src={game.linkImage} />
             <C.Plataforms>
-
+              {/* percorre a lista de plataformas e adiciona uma barra após fazer a leitura */}
               {game.platforms.map((platform, index) => (
                 <C.GamePlatform key={platform.idPlatform}>
                   {index === game.platforms.length - 1 ? (
@@ -75,8 +82,8 @@ export const Games: React.FC = () => {
               </C.BuyBtn>
               <ModalProduct key={game.idGame}
                 game={game} // Passando game como prop
-                selectedGameIndex={selectedGameIndex}
                 index={index}
+                selectedGameIndex={selectedGameIndex}
                 afterOpenModal={afterOpenModal}
                 closeModal={closeModal}
                 handleBuy={handleBuy}
@@ -88,5 +95,6 @@ export const Games: React.FC = () => {
         <p>{error}</p>
       )}
     </C.GameContainer>
+    </>
   );
 };

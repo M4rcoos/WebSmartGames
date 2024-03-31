@@ -15,6 +15,7 @@ export const GameCard = styled.div`
   opacity: 0;
   animation: appear 1s forwards;
 `
+
 export const GameTitle = styled.h2`
   font-weight: 700;
   margin-bottom: 8px;
@@ -69,4 +70,5 @@ export const BuyBtn = styled.button`
 export const Plataforms = styled.div`
 width: 100%;
     display: flex;
+    flex-wrap: wrap;
 `

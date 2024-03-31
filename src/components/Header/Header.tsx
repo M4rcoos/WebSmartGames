@@ -3,6 +3,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 import '../../styles/global.css';
 import game from '../../assets/games.jpg';
 import logo from '../../assets/logo.png';
+
 import * as C from './styles'
 
 export const Header: React.FC = () => {
