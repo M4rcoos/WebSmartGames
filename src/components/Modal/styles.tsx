@@ -108,7 +108,7 @@ export const ModalContent = styled.div`
   grid-template-rows: auto auto auto auto;
   row-gap: 10px;
 `;
-export const TextDiscount = styled.p`
+export const TextModal = styled.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 200;

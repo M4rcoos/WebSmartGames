@@ -19,11 +19,6 @@ interface ModalProductProps {
     modalIsOpen: boolean;
 }
 
-function calculateDiscount(price: number, discount: number) {
-    const sub = price - discount;
-    return sub
-}
-
 export const ModalProduct: React.FC<ModalProductProps> = ({
     game,
     selectedGameIndex,
@@ -35,6 +30,19 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
 }) => {
     const qrCodeData = JSON.stringify(game.discount);
     const [storeSelectedIndex, setStoreSelectedIndex] = useState<number | null>(null);
+    // --calculo de desconto
+    function calculateDiscount(price: number, discount: number) {
+        const sub = price - discount;
+        return sub
+    }
+    //fução para comprar o jogo
+    const handleBuyClick = () => {
+        if (storeSelectedIndex !== null) {
+            handleBuy(game.idGame, game.stores[storeSelectedIndex]?.idStore);
+        } else {
+            alert('Selecione uma loja antes de comprar o jogo.');
+        }
+    };
 
     return (
         <>
@@ -56,7 +64,7 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
 
                     <C.ContentPurchase>
                         {
-                            game.discount != null ? (
+                            game.discount != 0 ? (
                                 <C.ContentValue>
                                     <C.DescValue>
                                         <strong>Valor do produto: </strong><C.Value type="VALUE" >R${game.price.toFixed(2)}</C.Value>
@@ -80,13 +88,13 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
                             )
                         }
                         <C.Discount>
-                            <C.TextDiscount>Escaneie o QR pelo App e pegue o desconto!</C.TextDiscount>
+                            <C.TextModal>Escaneie o QR pelo App e pegue o desconto!</C.TextModal>
                             <QRCode value={qrCodeData} />
                         </C.Discount>
                         <strong>Onde comprar:</strong>
                         <div>
                             {/* Renderize botões para selecionar cada loja */}
-                            <p style={{ textAlign: "center" }}>Selecione uma loja:</p>
+                            <C.TextModal>Selecione uma loja:</C.TextModal>
                             <C.SelectedStoreContent>
                                 {game.stores.map((store, idx) => (
                                     <>
@@ -105,7 +113,6 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
                         </div>
                         {storeSelectedIndex !== null && (
                             <>
-
                                 {game.stores.map((store, idx) => (
                                     <C.ContentMap key={store.idStore}>
                                         {/* Renderização do mapa somente se a loja selecionada for igual à loja atual do loop */}
@@ -124,19 +131,16 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
                                 ))}
                             </>
                         )}
-                        {
-                            storeSelectedIndex !== null ? (
+                        
+                          
                                 <C.BuyModal
-                                    onClick={() => handleBuy(game.idGame, game.stores[storeSelectedIndex ?? 0].idStore)}
+                                  onClick={handleBuyClick}
                                 >
                                     Comprar Jogo
                                 </C.BuyModal>
-                            ) : (
-                                <C.BuyModal onClick={() => alert('Selecione uma loja antes de comprar o jogo.')}>
-                                    Comprar Jogo
-                                </C.BuyModal>
-                            )
-                        }
+                           
+                                
+                        
 
                     </C.ContentPurchase>
                 </C.ModalContainer>

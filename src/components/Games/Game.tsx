@@ -37,6 +37,7 @@ export const Games: React.FC = () => {
 
 
   const handleBuy = (idGame: number, idStore: number) => {
+   
     api.put(`/games/${idGame}/${idStore}`) .then(() => {
       const titulo = "Compra Efetuada";
       const mensagem = "A sua compra foi efetuada com sucesso!";
