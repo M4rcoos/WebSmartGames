@@ -37,7 +37,6 @@ export const Games: React.FC = () => {
 
 
   const handleBuy = (idGame: number, idStore: number) => {
-   
     api.put(`/games/${idGame}/${idStore}`) .then(() => {
       const titulo = "Compra Efetuada";
       const mensagem = "A sua compra foi efetuada com sucesso!";
@@ -46,8 +45,6 @@ export const Games: React.FC = () => {
   .catch((error) => {
       console.error("Erro ao selecionar a loja:", error); // Exibir um alerta caso ocorra um erro
   });
-
-   
   };
 
   if (games && games.length > 0 && filteredGames) {

@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { customStyles } from "../Games/styles/CustomStyle";
 import { IGame } from "../../interfaces/Interfaces";
 import QRCode from 'qrcode.react';
+import QRCodeImg from '../../assets/qr code desconto.png';
 
 import * as C from "./styles"
 
@@ -89,7 +90,7 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
                         }
                         <C.Discount>
                             <C.TextModal>Escaneie o QR pelo App e pegue o desconto!</C.TextModal>
-                            <QRCode value={qrCodeData} />
+                            <C.ModalImg src={QRCodeImg} width={500 }/>
                         </C.Discount>
                         <strong>Onde comprar:</strong>
                         <div>
