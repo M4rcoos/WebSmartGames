@@ -6,9 +6,11 @@ import logo from '../../assets/logo.png';
 
 import * as C from './styles'
 
+//component header
 export const Header: React.FC = () => {
   
-  const { input = '', setInput, games } = React.useContext(GlobalContext);
+  //usando meu contexto global
+  const { input = '', setInput } = React.useContext(GlobalContext);
 
   return (
     <>

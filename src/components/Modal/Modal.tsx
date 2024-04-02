@@ -14,22 +14,19 @@ interface ModalProductProps {
     game: IGame;
     selectedGameIndex: number | null | false;
     index: number;
-    afterOpenModal: () => void;
+  
     closeModal: () => void;
     handleBuy: (id: number, idstore: number) => void;
-    modalIsOpen: boolean;
 }
 
 export const ModalProduct: React.FC<ModalProductProps> = ({
     game,
     selectedGameIndex,
     index,
-    afterOpenModal,
     closeModal,
     handleBuy,
-    modalIsOpen
 }) => {
-    const qrCodeData = JSON.stringify(game.discount);
+    //armazena a posição do game listado
     const [storeSelectedIndex, setStoreSelectedIndex] = useState<number | null>(null);
     // --calculo de desconto
     function calculateDiscount(price: number, discount: number) {
@@ -47,9 +44,9 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
 
     return (
         <>
+        {/* selectedIndex for igual o index vindo lá na pagina game? então eu renderizo o meu modal */}
             <Modal
                 isOpen={selectedGameIndex === index}
-                onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
             >
@@ -65,6 +62,7 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
 
                     <C.ContentPurchase>
                         {
+                            
                             game.discount != 0 ? (
                                 <C.ContentValue>
                                     <C.DescValue>
@@ -147,5 +145,7 @@ export const ModalProduct: React.FC<ModalProductProps> = ({
                 </C.ModalContainer>
             </Modal>
         </>
-    );
+
+);
+console.log(storeSelectedIndex)
 };

@@ -1,8 +1,9 @@
 import { ModalStyles } from '../../../interfaces/Interfaces';
 
 export const customStyles: ModalStyles = {
+  // Define estilos para a sobreposição do modal
   overlay: {
-    position: 'fixed',
+    position: 'fixed',  //Fixa a posição da sobreposição em relação à janela de visualização
     top: 0,
     left: 0,
     right: 0,
